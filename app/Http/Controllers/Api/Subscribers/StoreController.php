@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\Subscribers;
 
-use App\Actions\Contracts\CreateNewSubscriberContract;
 use App\DataObjects\SubscriberObject;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Subscribers\StoreRequest;

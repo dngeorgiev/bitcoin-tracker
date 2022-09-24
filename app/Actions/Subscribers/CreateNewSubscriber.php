@@ -1,12 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Actions;
+namespace App\Actions\Subscribers;
 
-use App\Actions\Contracts\CreateNewSubscriberContract;
 use App\Events\Subscribers\Subscribed;
 use App\Models\Subscriber;
-use App\Notifications\Subscribers\SuccessfullySubscribed;
 use Illuminate\Database\Eloquent\Model;
 use JustSteveKing\DataObjects\Contracts\DataObjectContract;
 

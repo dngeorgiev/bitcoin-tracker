@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Actions\Contracts;
+namespace App\Actions\Subscribers;
 
 use App\Models\Subscriber;
 use Illuminate\Database\Eloquent\Model;

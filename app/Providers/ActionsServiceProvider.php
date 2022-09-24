@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Actions\Contracts\CreateNewSubscriberContract;
-use App\Actions\CreateNewSubscriber;
+use App\Actions\Subscribers\CreateNewSubscriber;
+use App\Actions\Subscribers\CreateNewSubscriberContract;
 use Illuminate\Support\ServiceProvider;
 
 final class ActionsServiceProvider extends ServiceProvider
