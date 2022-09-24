@@ -17,13 +17,8 @@ final class SendSubscribedEmailNotification implements ShouldQueue
 
     public function handle(Subscribed $event): void
     {
-        $subscriber = Subscriber::find($event->subscriberId);
+        $subscriber = Subscriber::query()->find($event->subscriberId);
 
-        // Can be changed to pick up desired currencies from user. For the purposes of this demo, BTC and USD are hardcoded.
-        $fromCurrency = 'BTC';
-        $toCurrency = 'USD';
-        $limit = $subscriber->btc_to_usd_limit;
-
-        $subscriber->notify(new SuccessfullySubscribed($fromCurrency, $toCurrency, $limit));
+        $subscriber->notify(new SuccessfullySubscribed());
     }
 }
