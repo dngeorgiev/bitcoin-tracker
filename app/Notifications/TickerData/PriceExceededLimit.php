@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Notifications\TickerData;
 
+use App\Models\Subscriber;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -17,12 +18,12 @@ final class PriceExceededLimit extends Notification implements ShouldQueue
     {
     }
 
-    public function via($notifiable): array
+    public function via(Subscriber $notifiable): array
     {
         return ['mail'];
     }
 
-    public function toMail($notifiable): MailMessage
+    public function toMail(Subscriber $notifiable): MailMessage
     {
         $appName = config('app.name');
         $limit = $notifiable->btc_to_usd_limit;
