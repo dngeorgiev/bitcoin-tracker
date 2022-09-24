@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Notifications\Subscribers;
 
+use App\Models\Subscriber;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -12,22 +13,23 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public function __construct(
-        public readonly string $fromCurrency,
-        public readonly string $toCurrency,
-        public readonly float $limit,
-    )
+    public function __construct()
     {
     }
 
-    public function via($notifiable): array
+    public function via(Subscriber $notifiable): array
     {
         return ['mail'];
     }
 
-    public function toMail($notifiable): MailMessage
+    public function toMail(Subscriber $notifiable): MailMessage
     {
         $appName = config('app.name');
+        $limit = $notifiable->btc_to_usd_limit;
+
+        // Can be changed to pick up desired currencies from user. For the purposes of this demo, BTC and USD are hardcoded.
+        $fromCurrency = 'BTC';
+        $toCurrency = 'USD';
 
         return (new MailMessage)
                     ->line(
@@ -35,15 +37,15 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
                             'subscribers.you-have-successfully-subscribed',
                             [
                                 'app_name' => $appName,
-                                'from_currency' => $this->fromCurrency,
-                                'to_currency' => $this->toCurrency
+                                'from_currency' => $fromCurrency,
+                                'to_currency' => $toCurrency
                             ]
                         )
                     )
                     ->line(
                         __(
                             'subscribers.you-will-be-notified-when-exceeds',
-                            ['limit' => $this->limit . ' ' . $this->toCurrency]
+                            ['limit' => $limit . ' ' . $toCurrency]
                         )
                     )
                     ->line(

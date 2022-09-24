@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 use JustSteveKing\DataObjects\Contracts\DataObjectContract;
 use JustSteveKing\DataObjects\Facades\Hydrator;
 
-class BitfinexCollectTickerDatum implements CollectTickerDatumContract
+final class BitfinexCollectTickerDatum implements CollectTickerDatumContract
 {
     private const API_URL = 'https://api.bitfinex.com/v1/pubticker/';
 
