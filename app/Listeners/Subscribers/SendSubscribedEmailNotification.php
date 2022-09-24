@@ -9,7 +9,7 @@ use App\Notifications\Subscribers\SuccessfullySubscribed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendSubscribedEmailNotification implements ShouldQueue
+final class SendSubscribedEmailNotification implements ShouldQueue
 {
     public function __construct()
     {
