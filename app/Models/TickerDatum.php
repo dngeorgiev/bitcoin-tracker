@@ -14,6 +14,10 @@ final class TickerDatum extends Model
 
     public $timestamps = false;
 
+    protected $guarded = [
+        'id'
+    ];
+
     protected $casts = [
         'from_currency' => Currency::class,
         'to_currency' => Currency::class,
