@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47f3af2a24aeda5d3749ae759e5e8b17",
+    "content-hash": "564073f9e2f1f2fcb307eb35c743aa42",
     "packages": [
         {
             "name": "brick/math",
@@ -432,6 +432,70 @@
                 }
             ],
             "time": "2022-06-18T20:57:19+00:00"
+        },
+        {
+            "name": "eventsauce/object-hydrator",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EventSaucePHP/ObjectHydrator.git",
+                "reference": "c1b159ae968b8b356aa7dbecb272c1e728412f41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EventSaucePHP/ObjectHydrator/zipball/c1b159ae968b8b356aa7dbecb272c1e728412f41",
+                "reference": "c1b159ae968b8b356aa7dbecb272c1e728412f41",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "league/construct-finder": "^1.1",
+                "phpbench/phpbench": "^1.2",
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.5.11",
+                "ramsey/uuid": "^4.2"
+            },
+            "suggest": {
+                "league/construct-finder": "Find all classes in a directory for the best dumped hydrators."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EventSauce\\ObjectHydrator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "description": "Converts structured data into strict objects.",
+            "keywords": [
+                "construction",
+                "constructor",
+                "hydration",
+                "mapper"
+            ],
+            "support": {
+                "issues": "https://github.com/EventSaucePHP/ObjectHydrator/issues",
+                "source": "https://github.com/EventSaucePHP/ObjectHydrator/tree/0.4.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/frankdejonge",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-07-08T16:57:09+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -896,6 +960,67 @@
                 }
             ],
             "time": "2022-08-28T14:45:39+00:00"
+        },
+        {
+            "name": "juststeveking/laravel-data-object-tools",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JustSteveKing/laravel-data-object-tools.git",
+                "reference": "3b7187fe5a66548684ee5acd160dacfc176bcc54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JustSteveKing/laravel-data-object-tools/zipball/3b7187fe5a66548684ee5acd160dacfc176bcc54",
+                "reference": "3b7187fe5a66548684ee5acd160dacfc176bcc54",
+                "shasum": ""
+            },
+            "require": {
+                "eventsauce/object-hydrator": "^0.4.3",
+                "illuminate/contracts": "^9.22",
+                "illuminate/support": "^9.22",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.1",
+                "orchestra/testbench": "^7.6",
+                "pestphp/pest": "^1.21",
+                "phpstan/phpstan": "^1.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JustSteveKing\\DataObjects\\Providers\\PackageServiceProvider"
+                    ],
+                    "aliases": [
+                        "JustSteveKing\\DataObjects\\Facades\\Hydrator"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JustSteveKing\\DataObjects\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve McDougall",
+                    "email": "juststevemcd@gmail.com",
+                    "homepage": "https://www.juststeveking.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of tools to make working with Data Transfer Objects easier in Laravel",
+            "support": {
+                "issues": "https://github.com/JustSteveKing/laravel-data-object-tools/issues",
+                "source": "https://github.com/JustSteveKing/laravel-data-object-tools/tree/1.0.1"
+            },
+            "time": "2022-07-28T17:07:32+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7811,7 +7936,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

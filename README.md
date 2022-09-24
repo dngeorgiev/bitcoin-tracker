@@ -74,6 +74,7 @@ or you can call the PHPUnit binary by using:
 - [VueJS 3](https://vuejs.org/)
 - [Chart.js](https://www.chartjs.org/)
 - [Guzzle HTTP Client](https://laravel.com/docs/9.x/http-client)
+- [Laravel Data Object Tools](https://github.com/JustSteveKing/laravel-data-object-tools)
 - Passion and desire to succeed
 
 ## License
