@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Jobs\TickerData;
@@ -6,13 +7,11 @@ namespace App\Jobs\TickerData;
 use App\Actions\TickerData\CollectTickerDatumContract;
 use App\Actions\TickerData\StoreNewTickerDatumContract;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use JustSteveKing\DataObjects\Contracts\DataObjectContract;
 
 final class CollectBtcToUsdTickerDatum implements ShouldQueue
 {
@@ -22,6 +21,7 @@ final class CollectBtcToUsdTickerDatum implements ShouldQueue
     use SerializesModels;
 
     private const FROM_CURRENCY = 'btc';
+
     private const TO_CURRENCY = 'usd';
 
     public function handle(CollectTickerDatumContract $collectAction, StoreNewTickerDatumContract $storeAction): void

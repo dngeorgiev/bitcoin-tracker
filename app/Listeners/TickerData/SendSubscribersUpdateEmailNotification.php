@@ -8,7 +8,6 @@ use App\Models\Subscriber;
 use App\Models\TickerDatum;
 use App\Notifications\TickerData\PriceExceededLimit;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Notification;
 
 final class SendSubscribersUpdateEmailNotification implements ShouldQueue
@@ -30,7 +29,7 @@ final class SendSubscribersUpdateEmailNotification implements ShouldQueue
         Subscriber::query()
             ->notifiedBefore(self::NOTIFY_INTERVAL_IN_MINUTES)
             ->limitExceeds($tickerDatum->last_price, Currency::BTC, Currency::USD)
-            ->chunk(50, function($subscribers) {
+            ->chunk(50, function ($subscribers) {
                 Notification::send($subscribers, new PriceExceededLimit());
             });
     }

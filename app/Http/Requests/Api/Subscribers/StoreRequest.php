@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http\Requests\Api\Subscribers;
@@ -24,7 +25,7 @@ final class StoreRequest extends FormRequest
             'btc_to_usd_limit' => [
                 'required',
                 'numeric',
-            ]
+            ],
         ];
     }
 }

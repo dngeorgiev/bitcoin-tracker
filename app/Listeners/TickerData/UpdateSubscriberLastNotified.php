@@ -21,7 +21,7 @@ final class UpdateSubscriberLastNotified implements ShouldQueue
             $subscriber = $event->notifiable;
 
             $subscriber->update([
-                'last_notified_at' => Carbon::now()
+                'last_notified_at' => Carbon::now(),
             ]);
         }
     }

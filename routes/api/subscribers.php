@@ -1,7 +1,8 @@
 <?php
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Subscribers\StoreController;
 
-Route::group([], function() {
+use App\Http\Controllers\Api\Subscribers\StoreController;
+use Illuminate\Support\Facades\Route;
+
+Route::group([], function () {
     Route::post('/', StoreController::class)->name('store');
 });

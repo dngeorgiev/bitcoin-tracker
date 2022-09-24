@@ -18,7 +18,8 @@ final class TickerDatumObject implements DataObjectContract
         public readonly Currency $to_currency,
         public readonly Carbon $valid_at,
         public readonly Carbon $inserted_at,
-    ) {}
+    ) {
+    }
 
     public function toArray(): array
     {

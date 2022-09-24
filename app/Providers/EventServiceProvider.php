@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use App\Events\Subscribers\Subscribed;
-use App\Listeners\Subscribers\SendSubscribedEmailNotification;
 use App\Events\TickerData\TickerDatumStored;
+use App\Listeners\Subscribers\SendSubscribedEmailNotification;
 use App\Listeners\TickerData\SendSubscribersUpdateEmailNotification;
 use App\Listeners\TickerData\UpdateSubscriberLastNotified;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Notifications\Events\NotificationSent;
 
 final class EventServiceProvider extends ServiceProvider
@@ -22,8 +22,8 @@ final class EventServiceProvider extends ServiceProvider
             SendSubscribersUpdateEmailNotification::class,
         ],
         NotificationSent::class => [
-            UpdateSubscriberLastNotified::class
-        ]
+            UpdateSubscriberLastNotified::class,
+        ],
     ];
 
     public function boot(): void

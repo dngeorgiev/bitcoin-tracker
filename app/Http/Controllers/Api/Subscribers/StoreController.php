@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\Subscribers;
@@ -20,7 +21,7 @@ final class StoreController extends Controller
                 class: SubscriberObject::class,
                 properties: [
                     'email' => $request->get('email'),
-                    'btc_to_usd_limit' => $request->get('btc_to_usd_limit')
+                    'btc_to_usd_limit' => $request->get('btc_to_usd_limit'),
                 ]
             )
         ));

@@ -2,12 +2,10 @@
 
 namespace App\Listeners\Subscribers;
 
-use App\Enums\Currency;
 use App\Events\Subscribers\Subscribed;
 use App\Models\Subscriber;
 use App\Notifications\Subscribers\SuccessfullySubscribed;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 final class SendSubscribedEmailNotification implements ShouldQueue
 {

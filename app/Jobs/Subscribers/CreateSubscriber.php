@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Jobs\Subscribers;
@@ -20,7 +21,8 @@ final class CreateSubscriber implements ShouldQueue
 
     public function __construct(
         public readonly DataObjectContract $subscriber,
-    ) {}
+    ) {
+    }
 
     public function handle(CreateNewSubscriberContract $action): void
     {

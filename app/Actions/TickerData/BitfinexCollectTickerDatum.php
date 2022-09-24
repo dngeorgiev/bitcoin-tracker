@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Actions\TickerData;
@@ -7,7 +8,6 @@ use App\DataObjects\TickerDatumObject;
 use Carbon\Carbon;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use JustSteveKing\DataObjects\Contracts\DataObjectContract;
 use JustSteveKing\DataObjects\Facades\Hydrator;
 
@@ -20,7 +20,7 @@ final class BitfinexCollectTickerDatum implements CollectTickerDatumContract
      */
     public function handle(string $fromCurrency, string $toCurrency): DataObjectContract
     {
-        $fullUrl = self::API_URL . $fromCurrency . $toCurrency;
+        $fullUrl = self::API_URL.$fromCurrency.$toCurrency;
 
         $response = Http::acceptJson()->get($fullUrl);
 

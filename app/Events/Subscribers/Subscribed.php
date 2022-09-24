@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Events\Subscribers;
@@ -17,8 +18,8 @@ final class Subscribed
 
     public function __construct(
         public readonly int $subscriberId
-    )
-    {}
+    ) {
+    }
 
     public function broadcastOn(): Channel|array
     {

@@ -15,7 +15,7 @@ final class TickerDatum extends Model
     public $timestamps = false;
 
     protected $guarded = [
-        'id'
+        'id',
     ];
 
     protected $casts = [

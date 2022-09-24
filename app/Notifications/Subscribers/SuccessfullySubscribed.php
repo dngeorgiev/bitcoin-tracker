@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Notifications\Subscribers;
@@ -38,14 +39,14 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
                             [
                                 'app_name' => $appName,
                                 'from_currency' => $fromCurrency,
-                                'to_currency' => $toCurrency
+                                'to_currency' => $toCurrency,
                             ]
                         )
                     )
                     ->line(
                         __(
                             'subscribers.you-will-be-notified-when-exceeds',
-                            ['limit' => $limit . ' ' . $toCurrency]
+                            ['limit' => $limit.' '.$toCurrency]
                         )
                     )
                     ->line(

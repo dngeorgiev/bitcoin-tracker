@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Notifications\TickerData;
@@ -37,7 +38,7 @@ final class PriceExceededLimit extends Notification implements ShouldQueue
                     [
                         'limit' => $limit,
                         'from_currency' => $fromCurrency,
-                        'to_currency' => $toCurrency
+                        'to_currency' => $toCurrency,
                     ]
                 )
             )

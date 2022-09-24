@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Events\TickerData;
@@ -17,7 +18,8 @@ final class TickerDatumStored
 
     public function __construct(
         public readonly int $tickerDatumId
-    ) {}
+    ) {
+    }
 
     public function broadcastOn(): Channel|array
     {
