@@ -4,70 +4,30 @@ declare(strict_types=1);
 namespace {{ namespace }};
 
 use {{ namespacedModel }};
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use {{ namespacedParentModel }};
 
 final class {{ class }} extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return Response
-     */
-    public function index({{ parentModel }} ${{ parentModelVariable }}): Response
+    public function index({{ parentModel }} ${{ parentModelVariable }}): JsonResponse
     {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return Response
-     */
-    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): Response
+    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): JsonResponse
     {
-        //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return Response
-     */
-    public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): Response
+    public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResponse
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return Response
-     */
-    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): Response
+    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResponse
     {
-        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return Response
-     */
-    public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): Response
+    public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResponse
     {
-        //
     }
 }

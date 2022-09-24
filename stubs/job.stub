@@ -9,23 +9,11 @@ final class {{ class }}
 {
     use Dispatchable;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
     public function __construct(): void
     {
-        //
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle(): void
     {
-        //
     }
 }
