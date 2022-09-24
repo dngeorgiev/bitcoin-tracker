@@ -1,0 +1,3 @@
+<template>
+    Bitcoin Tracker
+</template>
