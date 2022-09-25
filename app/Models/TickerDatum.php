@@ -95,8 +95,8 @@ final class TickerDatum extends Model
 
     public function scopeFromCurrencyToCurrency(Builder $query, Currency $fromCurrency, Currency $toCurrency): Builder
     {
-        return $query->where(column: 'from_currency', value: $fromCurrency)
-                    ->where(column: 'to_currency', value: $toCurrency);
+        return $query->where(column: 'from_currency', operator: '=', value: $fromCurrency)
+                    ->where(column: 'to_currency', operator: '=', value: $toCurrency);
     }
 
     /* End Scopes */
