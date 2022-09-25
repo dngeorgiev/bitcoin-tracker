@@ -12,16 +12,21 @@
             :width="width"
             :height="height"
         />
-        <div class="filter-buttons-container">
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'one_hour'}" @click="changeChartType('one_hour')">1h</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'six_hours'}" @click="changeChartType('six_hours')">6h</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'one_day'}" @click="changeChartType('one_day')">1d</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'three_days'}" @click="changeChartType('three_days')">3d</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'seven_days'}" @click="changeChartType('seven_days')">7d</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'one_month'}" @click="changeChartType('one_month')">1m</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'three_months'}" @click="changeChartType('three_months')">3m</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'one_year'}" @click="changeChartType('one_year')">1y</button>
-            <button class="btn btn-primary" :class="{active: selectedChartType === 'three_years'}" @click="changeChartType('three_years')">3y</button>
+        <div class="chart-footer">
+            <div class="filter-buttons-container">
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'one_hour'}" @click="changeChartType('one_hour')">1h</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'six_hours'}" @click="changeChartType('six_hours')">6h</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'one_day'}" @click="changeChartType('one_day')">1d</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'three_days'}" @click="changeChartType('three_days')">3d</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'seven_days'}" @click="changeChartType('seven_days')">7d</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'one_month'}" @click="changeChartType('one_month')">1m</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'three_months'}" @click="changeChartType('three_months')">3m</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'one_year'}" @click="changeChartType('one_year')">1y</button>
+                <button class="btn btn-primary" :class="{active: selectedChartType === 'three_years'}" @click="changeChartType('three_years')">3y</button>
+            </div>
+            <div class="chart-footer-description">
+                All times are in UTC.
+            </div>
         </div>
     </div>
 </template>
@@ -159,9 +164,11 @@ export default {
         margin-top: 1rem;
         height: 600px;
     }
-    .filter-buttons-container {
+    .chart-footer {
         display: flex;
+        align-items: center;
         margin-top: 2rem;
+        justify-content: space-between;
         margin-bottom: 1rem;
     }
     .filter-buttons-container > button {
