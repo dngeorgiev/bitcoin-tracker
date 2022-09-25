@@ -25,7 +25,7 @@ final class PriceExceededLimit extends Notification implements ShouldQueue
 
     public function toMail(Subscriber $notifiable): MailMessage
     {
-        $appName = config('app.name');
+        $appName = config(key: 'app.name');
         $limit = $notifiable->btc_to_usd_limit;
 
         // Can be changed to pick up desired currencies from user. For the purposes of this demo, BTC and USD are hardcoded.
@@ -34,9 +34,10 @@ final class PriceExceededLimit extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->line(
+                line:
                 __(
-                    'subscribers.the-price-of-x-has-exceeded-the-limit',
-                    [
+                    key: 'subscribers.the-price-of-x-has-exceeded-the-limit',
+                    replace: [
                         'limit' => $limit,
                         'from_currency' => $fromCurrency,
                         'to_currency' => $toCurrency,
@@ -44,9 +45,10 @@ final class PriceExceededLimit extends Notification implements ShouldQueue
                 )
             )
             ->line(
+                line:
                 __(
-                    'common.thank-you-for-using',
-                    ['app_name' => $appName]
+                    key: 'common.thank-you-for-using',
+                    replace: ['app_name' => $appName]
                 )
             );
     }

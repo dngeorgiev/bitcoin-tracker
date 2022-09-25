@@ -17,7 +17,7 @@ final class StoreNewTickerDatum implements StoreNewTickerDatumContract
             attributes: $tickerDatum->toArray()
         );
 
-        event(new TickerDatumStored($tickerDatumObject->id));
+        event(new TickerDatumStored(tickerDatumId: $tickerDatumObject->id));
 
         return $tickerDatumObject;
     }

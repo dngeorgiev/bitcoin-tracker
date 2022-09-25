@@ -27,14 +27,14 @@ final class CollectBtcToUsdTickerDatum implements ShouldQueue
     public function handle(CollectTickerDatumContract $collectAction, StoreNewTickerDatumContract $storeAction): void
     {
         try {
-            $dto = $collectAction->handle(self::FROM_CURRENCY, self::TO_CURRENCY);
+            $dto = $collectAction->handle(fromCurrency: self::FROM_CURRENCY, toCurrency: self::TO_CURRENCY);
 
             $storeAction->handle(
                 tickerDatum: $dto
             );
         } catch (\Exception $ex) {
             // Could be made way more fashionable - notify administrator by e-mail or something like that.
-            Log::error($ex->getMessage());
+            Log::error(message: $ex->getMessage());
         }
     }
 }

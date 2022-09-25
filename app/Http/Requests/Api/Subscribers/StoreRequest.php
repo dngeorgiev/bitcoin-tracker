@@ -20,7 +20,7 @@ final class StoreRequest extends FormRequest
             'email' => [
                 'required',
                 'email:rfc,dns',
-                Rule::unique('subscribers', 'email'),
+                Rule::unique(table: 'subscribers', column: 'email'),
             ],
             'btc_to_usd_limit' => [
                 'required',

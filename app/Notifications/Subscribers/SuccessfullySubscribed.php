@@ -25,7 +25,7 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
 
     public function toMail(Subscriber $notifiable): MailMessage
     {
-        $appName = config('app.name');
+        $appName = config(key: 'app.name');
         $limit = $notifiable->btc_to_usd_limit;
 
         // Can be changed to pick up desired currencies from user. For the purposes of this demo, BTC and USD are hardcoded.
@@ -34,9 +34,10 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
 
         return (new MailMessage)
                     ->line(
+                        line:
                         __(
-                            'subscribers.you-have-successfully-subscribed',
-                            [
+                            key: 'subscribers.you-have-successfully-subscribed',
+                            replace: [
                                 'app_name' => $appName,
                                 'from_currency' => $fromCurrency,
                                 'to_currency' => $toCurrency,
@@ -44,15 +45,17 @@ final class SuccessfullySubscribed extends Notification implements ShouldQueue
                         )
                     )
                     ->line(
+                        line:
                         __(
-                            'subscribers.you-will-be-notified-when-exceeds',
-                            ['limit' => $limit.' '.$toCurrency]
+                            key: 'subscribers.you-will-be-notified-when-exceeds',
+                            replace: ['limit' => $limit.' '.$toCurrency]
                         )
                     )
                     ->line(
+                        line:
                         __(
-                            'common.thank-you-for-using',
-                            ['app_name' => $appName]
+                            key: 'common.thank-you-for-using',
+                            replace: ['app_name' => $appName]
                         )
                     );
     }

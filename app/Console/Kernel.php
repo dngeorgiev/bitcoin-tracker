@@ -12,7 +12,7 @@ final class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->job(new CollectBtcToUsdTickerDatum())->everyMinute();
+        $schedule->job(job: new CollectBtcToUsdTickerDatum())->everyMinute();
     }
 
     protected function commands(): void

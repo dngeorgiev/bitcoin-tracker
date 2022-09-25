@@ -15,7 +15,7 @@ final class SendSubscribedEmailNotification implements ShouldQueue
 
     public function handle(Subscribed $event): void
     {
-        $subscriber = Subscriber::query()->find($event->subscriberId);
+        $subscriber = Subscriber::query()->find(id: $event->subscriberId);
 
         $subscriber->notify(new SuccessfullySubscribed());
     }

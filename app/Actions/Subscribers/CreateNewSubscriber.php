@@ -17,7 +17,7 @@ final class CreateNewSubscriber implements CreateNewSubscriberContract
             attributes: $subscriber->toArray()
         );
 
-        event(new Subscribed($subscriberModel->id));
+        event(new Subscribed(subscriberId: $subscriberModel->id));
 
         return $subscriberModel;
     }

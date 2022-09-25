@@ -41,7 +41,7 @@ final class TickerDatum extends Model
             case ChartType::HOURS_SIX:
                 $expression = 'AVG(last_price) as price,
                             FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(valid_at) / (5*60)) * (5*60)) AS date';
-                $validAfter = Carbon::now()->subHours(6);
+                $validAfter = Carbon::now()->subHours(value: 6);
                 break;
             case ChartType::DAYS_ONE:
                 $expression = 'AVG(last_price) as price,
@@ -51,12 +51,12 @@ final class TickerDatum extends Model
             case ChartType::DAYS_THREE:
                 $expression = 'AVG(last_price) as price,
                             FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(valid_at) / (30*60)) * (30*60)) AS date';
-                $validAfter = Carbon::now()->subDays(3);
+                $validAfter = Carbon::now()->subDays(value: 3);
                 break;
             case ChartType::DAYS_SEVEN:
                 $expression = 'AVG(last_price) as price,
                             FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(valid_at) / (60*60)) * (60*60)) AS date';
-                $validAfter = Carbon::now()->subDays(7);
+                $validAfter = Carbon::now()->subDays(value: 7);
                 break;
             case ChartType::MONTHS_ONE:
                 $expression = 'AVG(last_price) as price,
@@ -66,12 +66,12 @@ final class TickerDatum extends Model
             case ChartType::MONTHS_THREE:
                 $expression = 'AVG(last_price) as price,
                             FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(valid_at) / (12*60*60)) * (12*60*60)) AS date';
-                $validAfter = Carbon::now()->subMonths(3);
+                $validAfter = Carbon::now()->subMonths(value: 3);
                 break;
             case ChartType::YEARS_THREE:
                 $expression = 'AVG(last_price) as price,
                             FROM_UNIXTIME(FLOOR(UNIX_TIMESTAMP(valid_at) / (7*24*60*60)) * (7*24*60*60)) AS date';
-                $validAfter = Carbon::now()->subYears(3);
+                $validAfter = Carbon::now()->subYears(value: 3);
                 break;
             case ChartType::YEARS_ONE:
             default:
@@ -90,13 +90,13 @@ final class TickerDatum extends Model
                 operator: '>=',
                 value: $validAfter
             )
-            ->groupBy('date');
+            ->groupBy(groups: 'date');
     }
 
     public function scopeFromCurrencyToCurrency(Builder $query, Currency $fromCurrency, Currency $toCurrency): Builder
     {
-        return $query->where('from_currency', $fromCurrency)
-                    ->where('to_currency', $toCurrency);
+        return $query->where(column: 'from_currency', value: $fromCurrency)
+                    ->where(column: 'to_currency', value: $toCurrency);
     }
 
     /* End Scopes */

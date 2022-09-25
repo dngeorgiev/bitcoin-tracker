@@ -22,7 +22,7 @@ final class BitfinexCollectTickerDatum implements CollectTickerDatumContract
     {
         $fullUrl = self::API_URL.$fromCurrency.$toCurrency;
 
-        $response = Http::acceptJson()->get($fullUrl);
+        $response = Http::acceptJson()->get(url: $fullUrl);
 
         if ($response->failed()) {
             $response->throw();
@@ -38,7 +38,7 @@ final class BitfinexCollectTickerDatum implements CollectTickerDatumContract
                 'last_price' => floatval($responseBody['last_price']),
                 'from_currency' => $fromCurrency,
                 'to_currency' => $toCurrency,
-                'valid_at' => Carbon::createFromTimestamp($responseBody['timestamp']),
+                'valid_at' => Carbon::createFromTimestamp(timestamp: $responseBody['timestamp']),
                 'inserted_at' => Carbon::now(),
             ]
         );
