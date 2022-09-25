@@ -1,5 +1,7 @@
 # Bitcoin Tracker
 
+![Bitcoin Tracker Screenshot](/bitcoin_tracker_screenshot.png?raw=true "Bitcoin Tracker Screenshot")
+
 Bitcoin Tracker is a Laravel 9 + VueJS 3 project for tracking the bitcoin trades compared to USD.
 
 ## Prerequisites
@@ -34,6 +36,12 @@ php artisan key:generate
 php artisan migrate
 ```
 
+5. Seed data (***optional***)
+
+```bash
+php artisan db:seed
+```
+
 5. Install node packages and build assets
 
 ```bash
@@ -50,22 +58,6 @@ If you don't want to use Laravel Sail, you should configure your configuration f
 
 ```bash
 php artisan queue:work
-```
-
-## Testing
-
-The project contains a small batch of Unit and Feature tests to make sure everything works exactly as expected.
-
-To run tests use the artisan command:
-
-```bash
-php artisan test
-```
-
-or you can call the PHPUnit binary by using:
-
-```bash
-./vendor/bin/phpunit
 ```
 
 ## Built with
