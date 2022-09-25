@@ -21,7 +21,7 @@ final class StoreController extends Controller
                 class: SubscriberObject::class,
                 properties: [
                     'email' => $request->get('email'),
-                    'btc_to_usd_limit' => $request->get('btc_to_usd_limit'),
+                    'btc_to_usd_limit' => floatval($request->get('btc_to_usd_limit')),
                 ]
             )
         ));
