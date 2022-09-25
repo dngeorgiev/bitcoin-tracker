@@ -93,6 +93,10 @@ export default {
         border: 1px #e9e9e9 solid;
         padding: 1rem 2rem;
         width: 100%;
+        margin-top: 2rem;
+    }
+    #subscriberForm > h2 {
+        margin-bottom: 2rem;
     }
     #subscriberForm > form {
         width: 100%;
