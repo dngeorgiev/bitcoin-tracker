@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class IndexController extends Controller
 {
-    public function __invoke(Currency $fromCurrency, Currency $toCurrency, ChartType $chartType, Request $request): JsonResponse
+    public function __invoke(Request $request, Currency $fromCurrency, Currency $toCurrency, ChartType $chartType): JsonResponse
     {
         $tickerData = TickerDatum::query()
             ->fromCurrencyToCurrency(

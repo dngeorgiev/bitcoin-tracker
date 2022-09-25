@@ -13,7 +13,7 @@ final class TickerDatumResponse extends JsonResource
     public function toArray($request): array|Arrayable|JsonSerializable
     {
         return [
-            'price' => $this->price,
+            'price' => intval($this->price),
             'date' => $this->date,
         ];
     }
