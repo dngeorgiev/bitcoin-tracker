@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use App\Models\TickerDatum;
 use Carbon\Carbon;
 use Faker\Factory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class TickerDataSeeder extends Seeder
 {
@@ -26,7 +24,7 @@ class TickerDataSeeder extends Seeder
 
         $i = 1;
         while ($startFromDay->lessThan($currentDay)) {
-            $this->command->info('Iteration ' . $i . '...' . ' Date: ' . $startFromDay);
+            $this->command->info('Iteration '.$i.'...'.' Date: '.$startFromDay);
 
             $price = $faker->randomFloat(2, 7000, 60000);
             $data[] = [
@@ -36,7 +34,7 @@ class TickerDataSeeder extends Seeder
                 'from_currency' => 'btc',
                 'to_currency' => 'usd',
                 'valid_at' => $startFromDay->toDateTimeString(),
-                'inserted_at' => $startFromDay->toDateTimeString()
+                'inserted_at' => $startFromDay->toDateTimeString(),
             ];
 
             $diffInYears = $startFromDay->diffInYears($currentDay);
@@ -45,23 +43,23 @@ class TickerDataSeeder extends Seeder
 
             if ($diffInYears > 1) {
                 $startFromDay->addWeek();
-            } else if ($diffInYears == 1) {
+            } elseif ($diffInYears == 1) {
                 $startFromDay->addDay();
-            } else if ($diffInYears == 0) {
+            } elseif ($diffInYears == 0) {
                 if ($diffInMonths > 3) {
                     $startFromDay->addWeek();
-                } else if ($diffInMonths > 1) {
+                } elseif ($diffInMonths > 1) {
                     $startFromDay->addHours(12);
-                } else if ($diffInMonths == 1) {
+                } elseif ($diffInMonths == 1) {
                     $startFromDay->addHours(6);
                 } else {
                     if ($diffInDays > 7) {
                         $startFromDay->addHours(6);
-                    } else if ($diffInDays > 3) {
+                    } elseif ($diffInDays > 3) {
                         $startFromDay->addHour();
-                    } else if ($diffInDays > 1) {
+                    } elseif ($diffInDays > 1) {
                         $startFromDay->addMinutes(30);
-                    } else if ($diffInDays == 1) {
+                    } elseif ($diffInDays == 1) {
                         $startFromDay->addMinutes(15);
                     } else {
                         $startFromDay->addMinute();
@@ -71,8 +69,8 @@ class TickerDataSeeder extends Seeder
             $i++;
         }
 
-        foreach(array_chunk($data, 1000) as $index => $chunkArray) {
-            $this->command->info('Inserting chunk: ' . $index . '...');
+        foreach (array_chunk($data, 1000) as $index => $chunkArray) {
+            $this->command->info('Inserting chunk: '.$index.'...');
             TickerDatum::query()->insert($chunkArray);
         }
     }
