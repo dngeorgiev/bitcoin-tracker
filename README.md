@@ -30,28 +30,28 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-4. Run migrations
-
-```bash
-php artisan migrate
-```
-
-5. Seed data (***optional***)
-
-```bash
-php artisan db:seed
-```
-
-5. Install node packages and build assets
+4. Install node packages and build assets
 
 ```bash
 npm install && npm run dev
 ```
 
-6. Start Laravel Sail (***must have Docker Desktop up and running***)
+5. Start Laravel Sail (***must have Docker Desktop up and running***)
 
 ```bash
-./vendor bin sail up -d
+./vendor/bin/sail up -d
+```
+
+6. Run migrations
+
+```bash
+./vendor/bin/sail artisan migrate
+```
+
+7. Seed data (***optional***)
+
+```bash
+./vendor/bin/sail artisan db:seed
 ```
 
 If you don't want to use Laravel Sail, you should configure your configuration file for database, mail server and start the Queue worker (***which is configured as Supervisor in the Docker container, if using Laravel Sail***) using this command:
